@@ -8,7 +8,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "electron-vue-typescript-generated"
+  name: "electron-vue-typescript-starter"
 });
 </script>
 

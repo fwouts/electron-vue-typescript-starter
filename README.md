@@ -1,4 +1,4 @@
-# electron-vue-typescript-generated
+# electron-vue-typescript-starter
 
 > An electron-vue project
 

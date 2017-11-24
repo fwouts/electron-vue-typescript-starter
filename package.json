@@ -1,5 +1,5 @@
 {
-  "name": "electron-vue-typescript-generated",
+  "name": "electron-vue-typescript-starter",
   "version": "0.0.0",
   "author": "Francois Wouts <f@zenc.io>",
   "description": "An electron-vue project",
@@ -20,7 +20,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "electron-vue-typescript-generated",
+    "productName": "electron-vue-typescript-starter",
     "appId": "org.simulatedgreg.electron-vue",
     "directories": {
       "output": "build"
