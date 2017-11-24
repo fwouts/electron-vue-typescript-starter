@@ -4,12 +4,14 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: 'electron-vue-typescript-generated'
-  }
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "electron-vue-typescript-generated"
+});
 </script>
 
 <style>
-  /* CSS */
+/* CSS */
 </style>
