@@ -53,6 +53,8 @@
     }
   },
   "dependencies": {
+    "inversify": "^4.13.0",
+    "reflect-metadata": "^0.1.12",
     "vue": "^2.5.16",
     "vue-electron": "^1.0.6",
     "vue-router": "^3.0.1",
@@ -106,6 +108,7 @@
     "vue-template-compiler": "^2.4.2",
     "webpack": "^3.5.2",
     "webpack-dev-server": "^2.7.1",
+    "webpack-env": "^0.8.0",
     "webpack-hot-middleware": "^2.18.2",
     "webpack-merge": "^4.1.0"
   }

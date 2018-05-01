@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
+    "strict": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "experimentalDecorators": true
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "types": [
+      "node",
+      "reflect-metadata"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }

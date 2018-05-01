@@ -1,58 +1,42 @@
-import { BrowserWindow, app } from "electron";
-
-let mainWindow: BrowserWindow | null;
-const winURL =
-  process.env.NODE_ENV === "development"
-    ? `http://localhost:9080`
-    : `file://${__dirname}/index.html`;
-
-function createWindow() {
-  /**
-   * Initial window options
-   */
-  mainWindow = new BrowserWindow({
-    height: 563,
-    useContentSize: true,
-    width: 1000
-  });
-
-  mainWindow.loadURL(winURL);
-
-  mainWindow.on("closed", () => {
-    mainWindow = null;
-  });
-}
-
-app.on("ready", createWindow);
-
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
-});
-
-app.on("activate", () => {
-  if (mainWindow === null) {
-    createWindow();
-  }
-});
+import "reflect-metadata";
+import { Container, injectable } from "inversify";
+import entities from "./entities";
+import AppService from "./services/app.service";
 
 /**
- * Auto Updater
+ * Create the DI Container
  *
- * Uncomment the following code below and install `electron-updater` to
- * support auto updating. Code Signing with a valid certificate is required.
- * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-electron-builder.html#auto-updating
+ * @type {Container}
  */
+let container = new Container();
 
-/*
-import { autoUpdater } from 'electron-updater'
-
-autoUpdater.on('update-downloaded', () => {
-  autoUpdater.quitAndInstall()
-})
-
-app.on('ready', () => {
-  if (process.env.NODE_ENV === 'production') autoUpdater.checkForUpdates()
-})
+/**
+ * Bind all entities into the DI Container
  */
+for(let entity of entities) {
+    if (entity) {
+        container.bind<any>(entity).toSelf().inSingletonScope();
+    }
+}
+
+/**
+ * Entry point of your app
+ */
+@injectable()
+class App {
+    constructor(private appService: AppService) {
+    }
+
+    start() {
+        this.appService.start();
+    }
+}
+
+/**
+ * Load App class from the container
+ *
+ * @type {App}
+ */
+const app = container.resolve(App);
+
+app.start();
