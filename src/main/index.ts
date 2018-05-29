@@ -4,23 +4,23 @@ import entities from "./entities";
 import AppService from "./services/app.service";
 
 /**
- * Create the DI Container
+ * Create the DI Container.
  *
  * @type {Container}
  */
 let container = new Container();
 
 /**
- * Bind all entities into the DI Container
+ * Bind all entities into the dependency injection Container.
  */
-for(let entity of entities) {
+for (let entity of entities) {
     if (entity) {
         container.bind<any>(entity).toSelf().inSingletonScope();
     }
 }
 
 /**
- * Entry point of your app
+ * Entry point of your app.
  */
 @injectable()
 class App {
@@ -33,7 +33,7 @@ class App {
 }
 
 /**
- * Load App class from the container
+ * Load App class from the container.
  *
  * @type {App}
  */

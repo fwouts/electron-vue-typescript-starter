@@ -1,12 +1,8 @@
 import {injectable} from 'inversify';
 import {app, BrowserWindow} from 'electron';
+import LoggerService from './logger.service';
 
-/**
- * We need to find alternative
- * I think is not beautiful
- *
- * @type {string}
- */
+// TODO: Consider a cleaner alternative.
 const winUrl = process.env.NODE_ENV === 'development'
     ? `http://localhost:9080`
     : `file://${__dirname}/index.html`;
@@ -16,13 +12,16 @@ export default class AppService {
 
     private mainWindow: BrowserWindow | null = null;
 
-    constructor() {
+    constructor(private loggerService: LoggerService) {
     }
 
     /**
-     * Initialize electron handlers
+     * Initialize electron handlers.
      */
     start() {
+
+        this.loggerService.debug('App started.');
+
 
         app.on('ready', this.createWindow);
 
@@ -41,7 +40,7 @@ export default class AppService {
 
 
     /**
-     * Create the mainWindow of your app
+     * Create the mainWindow of your app.
      */
     createWindow() {
         this.mainWindow = new BrowserWindow({
