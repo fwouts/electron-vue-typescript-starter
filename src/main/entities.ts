@@ -4,7 +4,7 @@ import AppService from "./services/app.service";
 /**
  * List of classes what you want to be autoInjectable.
  *
- * Like angular DI.
+ * http://inversify.io
  */
 export default [
     LoggerService,
