@@ -7,6 +7,6 @@ import AppService from "./services/app.service";
  * http://inversify.io
  */
 export default [
-    LoggerService,
-    AppService
+  LoggerService,
+  AppService
 ]

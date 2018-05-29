@@ -8,20 +8,20 @@ let container = new Container();
 
 // Bind all entities into the dependency injection Container.
 for (let entity of entities) {
-    if (entity) {
-        container.bind<any>(entity).toSelf().inSingletonScope();
-    }
+  if (entity) {
+    container.bind<any>(entity).toSelf().inSingletonScope();
+  }
 }
 
 // Entry point of your app.
 @injectable()
 class App {
-    constructor(private appService: AppService) {
-    }
+  constructor(private appService: AppService) {
+  }
 
-    start() {
-        this.appService.start();
-    }
+  start() {
+    this.appService.start();
+  }
 }
 
 // Load App class from the container.
