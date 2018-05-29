@@ -3,25 +3,17 @@ import { Container, injectable } from "inversify";
 import entities from "./entities";
 import AppService from "./services/app.service";
 
-/**
- * Create the DI Container.
- *
- * @type {Container}
- */
+// Create a container for dependency injection.
 let container = new Container();
 
-/**
- * Bind all entities into the dependency injection Container.
- */
+// Bind all entities into the dependency injection Container.
 for (let entity of entities) {
     if (entity) {
         container.bind<any>(entity).toSelf().inSingletonScope();
     }
 }
 
-/**
- * Entry point of your app.
- */
+// Entry point of your app.
 @injectable()
 class App {
     constructor(private appService: AppService) {
@@ -32,11 +24,7 @@ class App {
     }
 }
 
-/**
- * Load App class from the container.
- *
- * @type {App}
- */
-const app = container.resolve(App);
+// Load App class from the container.
+const app = container.resolve<App>(App);
 
 app.start();
