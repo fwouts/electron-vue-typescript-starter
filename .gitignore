@@ -1,4 +1,5 @@
 .DS_Store
+*.tgz
 dist/electron/*
 dist/web/*
 build/*
@@ -7,5 +8,6 @@ coverage
 node_modules/
 npm-debug.log
 npm-debug.log.*
+package/
 thumbs.db
 !.gitkeep
