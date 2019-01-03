@@ -4,4 +4,4 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install
 COPY . .
-RUN yarn build
+RUN yarn build:dir
