@@ -1,12 +1,22 @@
 version: 2
 jobs:
-  build:
+  docker_build_10_0:
     working_directory: ~/electron-starter
     steps:
       - checkout
       - run:
           name: Run Docker build with Node 10.0.0
           command: docker build --build-arg node_version=10.0.0 .
+  docker_build_10_13:
+    working_directory: ~/electron-starter
+    steps:
+      - checkout
       - run:
           name: Run Docker build with Node 10.13.0
           command: docker build --build-arg node_version=10.13.0 .
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - docker_build_10_0
+      - docker_build_10_13
