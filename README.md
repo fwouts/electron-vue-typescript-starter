@@ -1,5 +1,7 @@
 # electron-vue-typescript-starter
 
+[![CircleCI](https://circleci.com/gh/fwouts/electron-vue-typescript-starter.svg?style=svg)](https://circleci.com/gh/fwouts/electron-vue-typescript-starter)
+
 > A starter project for an Electron app built with Vue in TypeScript. Originally based on the [electron-vue boilerplate](https://github.com/SimulatedGREG/electron-vue).
 
 #### Build Setup
