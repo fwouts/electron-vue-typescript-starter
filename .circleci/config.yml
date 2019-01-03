@@ -1,16 +1,22 @@
 version: 2
 jobs:
   docker_build_10_0:
+    docker:
+      - image: circleci/node
     working_directory: ~/electron-starter
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: Run Docker build with Node 10.0.0
           command: docker build --build-arg node_version=10.0.0 .
   docker_build_10_13:
+    docker:
+      - image: circleci/node
     working_directory: ~/electron-starter
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: Run Docker build with Node 10.13.0
           command: docker build --build-arg node_version=10.13.0 .
