@@ -1,4 +1,4 @@
-ARG node_version=10.13.0
+ARG node_version=lts
 FROM node:$node_version-alpine
 WORKDIR /app
 COPY package.json yarn.lock ./
