@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "strict": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -9,7 +9,6 @@
       "dom"
     ],
     "types": [
-      "node",
       "reflect-metadata"
     ],
     "experimentalDecorators": true,

@@ -38,7 +38,6 @@ export default class AppService {
     });
   }
 
-
   /**
    * Create the mainWindow of your app.
    */
