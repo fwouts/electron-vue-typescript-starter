@@ -9,10 +9,14 @@ const webpack = require("webpack");
 const BabiliWebpackPlugin = require("babili-webpack-plugin");
 
 let mainConfig = {
+  mode: process.env.NODE_ENV || "production",
   entry: {
     main: path.join(__dirname, "../src/main/index.ts")
   },
-  externals: [...Object.keys(dependencies || {})],
+  externals: [
+    ...Object.keys(dependencies || {}),
+    { "electron-debug": "electron-debug" }
+  ],
   module: {
     rules: [
       {

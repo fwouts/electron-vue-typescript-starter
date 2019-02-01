@@ -9,8 +9,10 @@ const BabiliWebpackPlugin = require("babili-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 let webConfig = {
+  mode: process.env.NODE_ENV || "production",
   devtool: "#cheap-module-eval-source-map",
   entry: {
     web: path.join(__dirname, "../src/renderer/main.ts")
@@ -78,6 +80,7 @@ let webConfig = {
     ]
   },
   plugins: [
+    new VueLoaderPlugin(),
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
       filename: "index.html",

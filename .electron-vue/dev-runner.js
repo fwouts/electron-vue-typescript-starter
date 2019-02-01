@@ -11,6 +11,7 @@ const webpackHotMiddleware = require("webpack-hot-middleware");
 
 const mainConfig = require("./webpack.main.config");
 const rendererConfig = require("./webpack.renderer.config");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 let electronProcess = null;
 let manualRestart = false;
@@ -45,6 +46,7 @@ function logStats(proc, data) {
 
 function startRenderer() {
   return new Promise((resolve, reject) => {
+    rendererConfig.mode = "development";
     rendererConfig.entry.renderer = [path.join(__dirname, "dev-client")].concat(
       rendererConfig.entry.renderer
     );
@@ -56,10 +58,18 @@ function startRenderer() {
     });
 
     compiler.plugin("compilation", compilation => {
-      compilation.plugin("html-webpack-plugin-after-emit", (data, cb) => {
-        hotMiddleware.publish({ action: "reload" });
-        cb();
-      });
+      compilation.hooks.htmlWebpackPluginAfterEmit.tapAsync(
+        "HtmlWebpackPlugin",
+        (data, cb) => {
+          hotMiddleware.publish({ action: "reload" });
+          cb();
+        }
+      );
+
+      // compilation.plugin("html-webpack-plugin-after-emit", (data, cb) => {
+      //   hotMiddleware.publish({ action: "reload" });
+      //   cb();
+      // });
     });
 
     compiler.plugin("done", stats => {
@@ -83,6 +93,7 @@ function startRenderer() {
 
 function startMain() {
   return new Promise((resolve, reject) => {
+    mainConfig.mode = "development";
     mainConfig.entry.main = [
       path.join(__dirname, "../src/main/index.dev.ts")
     ].concat(mainConfig.entry.main);
