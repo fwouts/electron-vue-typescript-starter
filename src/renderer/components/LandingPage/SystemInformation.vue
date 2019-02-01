@@ -32,19 +32,20 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { Component } from "vue-property-decorator";
 
-export default Vue.extend({
-  data() {
-    return {
-      electron: (process.versions as any)["atom-shell"],
-      name: "landing-page",
-      node: process.versions.node,
-      path: "/",
-      platform: require("os").platform(),
-      vue: require("vue/package.json").version
-    };
-  }
-});
+@Component({
+  name: "SystemInformation"
+})
+export default class SystemInformation extends Vue {
+  electron: any = process.version;
+
+  vue = require("vue/package.json").version;
+  name = "landing-page";
+  node = process.versions.node;
+  path = "/";
+  platform = require("os").platform();
+}
 </script>
 
 <style scoped>

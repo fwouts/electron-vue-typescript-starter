@@ -1,6 +1,8 @@
 <template>
   <div id="wrapper">
-    <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
+    <img id="logo"
+      src="~@/assets/logo.png"
+      alt="electron-vue">
     <main>
       <div class="left-side">
         <span class="title">
@@ -21,8 +23,10 @@
         </div>
         <div class="doc">
           <div class="title alt">Other Documentation</div>
-          <button class="alt" @click="open('https://electron.atom.io/docs/')">Electron</button>
-          <button class="alt" @click="open('https://vuejs.org/v2/guide/')">Vue.js</button>
+          <button class="alt"
+            @click="open('https://electron.atom.io/docs/')">Electron</button>
+          <button class="alt"
+            @click="open('https://vuejs.org/v2/guide/')">Vue.js</button>
         </div>
       </div>
     </main>
@@ -31,17 +35,22 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { Component } from "vue-property-decorator";
 import SystemInformation from "./LandingPage/SystemInformation.vue";
 
-export default Vue.extend({
+@Component({
   name: "landing-page",
-  components: { SystemInformation },
-  methods: {
-    open(link: string) {
+  components: {
+    SystemInformation
+  }
+})
+export default class LandingPage extends Vue {
+  open(link: string) {
+    if (this.$electron) {
       this.$electron.shell.openExternal(link);
     }
   }
-});
+}
 </script>
 
 <style>

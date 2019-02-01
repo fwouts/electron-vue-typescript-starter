@@ -102,6 +102,7 @@
     "url-loader": "^1.1.2",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^15.6.2",
+    "vue-property-decorator": "^7.3.0",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.4.2",
     "webpack": "^4.29.0",

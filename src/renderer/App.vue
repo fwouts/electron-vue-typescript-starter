@@ -6,12 +6,11 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { Component } from "vue-property-decorator";
 
-export default Vue.extend({
+@Component({
   name: "electron-vue-typescript-starter"
-});
+})
+export default class App extends Vue {}
 </script>
 
-<style>
-/* CSS */
-</style>
