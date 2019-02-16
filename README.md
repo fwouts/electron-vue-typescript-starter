@@ -1,30 +1,12 @@
-# electron-vue-typescript-starter
+# Electron + Vue + TypeScript starter project
 
-[![CircleCI](https://circleci.com/gh/fwouts/electron-vue-typescript-starter.svg?style=svg)](https://circleci.com/gh/fwouts/electron-vue-typescript-starter)
+:warning: This starter project has been killed. It's no longer necessary, you're better off using [@vue/cli](https://cli.vuejs.org/guide/)!
 
-> A starter project for an Electron app built with Vue in TypeScript. Originally based on the [electron-vue boilerplate](https://github.com/SimulatedGREG/electron-vue).
-
-#### Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:9080
-npm run dev
-
-# build electron application for production
-npm run build
-
-# run unit & end-to-end tests
-npm test
-
-
-# lint all JS/Vue component files in `src/`
-npm run lint
-
+```shell
+yarn global add @vue/cli
+vue create my-app
+# Pick "Manually select features".
+# Check at least "TypeScript", then follow the prompts and pick what you prefer.
+vue add vue-cli-plugin-electron-builder
+# See https://github.com/nklayman/vue-cli-plugin-electron-builder for details.
 ```
-
----
-
-This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue)@[142eea4](https://github.com/SimulatedGREG/electron-vue/tree/142eea44aa50fdead91a469daedfcff04308c3fc) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
