@@ -5,6 +5,7 @@
 ```shell
 yarn global add @vue/cli
 vue create my-app
+cd my-app
 # Pick "Manually select features".
 # Check at least "TypeScript", then follow the prompts and pick what you prefer.
 vue add vue-cli-plugin-electron-builder
